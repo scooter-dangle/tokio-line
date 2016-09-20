@@ -34,6 +34,11 @@ impl Parse for Parser {
         }
         None
     }
+
+    fn done(&mut self, _: &mut BlockBuf) -> Option<Self::Out> {
+        // TODO tidy up `buf` here, eh?
+        Some(pipeline::Frame::Done)
+    }
 }
 
 pub struct Serializer;
